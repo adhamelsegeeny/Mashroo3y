@@ -2,18 +2,37 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-    username: {
+    email: {
         type: String,
-        required: true,
         unique: true
     },
     password: {
         type: String,
-        required: true
-    },  
-    image :{
-        type : Schema.Types.ObjectId,
-        ref : 'Image'
+    },
+    image: {
+        type: Schema.Types.ObjectId,
+        ref: 'Image'
+    },
+    birthDate: {
+        type: Date
+    },
+    gender: {
+        type: String
+    },
+    fullName: {
+        firstName: {
+            type: String
+        },
+        lastName: {
+            type: String
+        }
+    },
+    points :{
+        type: Number
+    },
+    vouchers :{
+        type: [Schema.Types.ObjectId],
+        ref: 'Voucher'
     }
 })
 
